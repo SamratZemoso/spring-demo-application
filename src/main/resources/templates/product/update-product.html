@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Update Product</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"></ul>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/admin}" href="#">Admin Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/logout}" href="#">Logout</a>
+            </li>
+
+        </ul>
+
+    </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h3>Update Product</h3>
+    <form th:action="@{/admin/product/update}" method="post" th:object="${product}">
+        <div class="row">
+            <div class="col-sm-5">
+
+                <input type="hidden" name="id" th:field="*{productId}">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" readonly th:field="*{name}" name="name" id="name"
+                           placeholder="Enter name">
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" class="form-control" th:field="*{price}" name="price" id="price">
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Items in Stock</label>
+                    <input type="number" class="form-control" th:field="*{stock}" name="stock" id="stock">
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Product Description</label>
+                    <textarea class="form-control" rows="5" readonly th:field="*{description}" name="description" id="description"></textarea>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

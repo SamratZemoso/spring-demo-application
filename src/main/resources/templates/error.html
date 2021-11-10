@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+</head>
+<body>
+<p> Bad Request - Page not available </p>
+<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" href="#"> Go back to Home </a>
+<br> <br>
+<a sec:authorize="hasRole('ROLE_USER')" th:href="@{/}" href="#"> Go back to Home </a>
+</body>
+</html>

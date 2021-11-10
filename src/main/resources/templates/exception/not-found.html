@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Not Found</title>
+</head>
+<body>
+
+    <p> Item Not Found </p>
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" href="#"> Go back to Home </a>
+    <br> <br>
+    <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/}" href="#"> Go back to Home </a>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title> My Cart Items </title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"></ul>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/}" href="#">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/list-products}" href="#">Products</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/cart-items}" href="#">Cart Items</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/logout}" href="#">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <h3> My Transactions </h3>
+
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">SN</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Price</th>
+            <th scope="col">Order time</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr th:each="item, iStat : ${myItems}">
+            <th scope="row" th:text="${iStat.index + 1}">1</th>
+            <td th:text="${item.product.name}">
+            <td th:text="${item.productPrice}">
+            <td th:text="${item.timestamp}">
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
